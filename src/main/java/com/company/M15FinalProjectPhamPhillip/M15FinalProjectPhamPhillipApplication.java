@@ -1,8 +1,7 @@
 package com.company.M15FinalProjectPhamPhillip;
 
-import static com.company.M15FinalProjectPhamPhillip.SpaceResponse.GetISS.displayLocation;
-import static com.company.M15FinalProjectPhamPhillip.SpaceResponse.GetISS.getSpace;
 import com.company.M15FinalProjectPhamPhillip.CryptoResponse.GetCoin;
+import com.company.M15FinalProjectPhamPhillip.SpaceResponse.GetISS;
 import com.company.M15FinalProjectPhamPhillip.SpaceResponse.SpaceResponse;
 import com.company.M15FinalProjectPhamPhillip.WeatherResponse.WeatherResponse;
 import com.company.M15FinalProjectPhamPhillip.WeatherResponse.GetWeather;
@@ -15,6 +14,9 @@ public class M15FinalProjectPhamPhillipApplication {
 		// Create a Scanner object and initialize other required variables
 		Scanner scanner = new Scanner(System.in);
 		boolean doLoop = true;
+		GetWeather getWeather = new GetWeather();
+		GetISS getISS = new GetISS();
+		GetCoin getCoin = new GetCoin();
 
 		// Instruct user on how to use the CLI
 		System.out.println("\nHello! Welcome to my final project."
@@ -34,31 +36,31 @@ public class M15FinalProjectPhamPhillipApplication {
 					// Use the .trim() function to get rid of any extraneous spaces
 					String cityInput = scanner.nextLine().trim();
 					// Call to the Weather API using the city that the user enters
-					WeatherResponse weatherResponse = GetWeather.getWeather(
+					WeatherResponse weatherResponse = getWeather.getWeather(
 							String.format("https://api.openweathermap.org/data/2.5/weather?q=%s&appid=1aca49340b58c05776e08f3ef1b97c65&units=imperial",cityInput));
 					// Print out the weather of the chosen city
-					GetWeather.displayWeather(weatherResponse);
+					getWeather.displayWeather(weatherResponse);
 					break;
 				case "2":
 					System.out.println("Here are details of the current ISS location: ");
 					// Call to the ISS API
-					SpaceResponse spaceResponse = getSpace();
+					SpaceResponse spaceResponse = getISS.getSpace();
 					// Print out the ISS location
-					displayLocation(spaceResponse);
+					getISS.displayLocation(spaceResponse);
 					// Retrieve the city and country from the Weather API using the instance of the ISS location above.
-					GetWeather.displayISSLocation(GetWeather.getWeather(
+					getWeather.displayISSLocation(getWeather.getWeather(
 							String.format("https://api.openweathermap.org/data/2.5/weather?lat=%s&lon=%s&appid=1aca49340b58c05776e08f3ef1b97c65&units=imperial",
 									spaceResponse.iss_position.latitude,spaceResponse.iss_position.longitude)));
 					break;
 				case "3":
 					System.out.println("Here are details of the current ISS location: ");
 					// Call to the ISS API
-					SpaceResponse spaceResponse2 = getSpace();
+					SpaceResponse spaceResponse2 = getISS.getSpace();
 					// Print out the ISS location
-					displayLocation(spaceResponse2);
+					getISS.displayLocation(spaceResponse2);
 					// Retrieve the city and country from the Weather API using the instance of the ISS location above
 					// and retrieve the weather of where the ISS location currently is.
-					GetWeather.displayISSWeather(GetWeather.getWeather(
+					getWeather.displayISSWeather(getWeather.getWeather(
 							String.format("https://api.openweathermap.org/data/2.5/weather?lat=%s&lon=%s&appid=1aca49340b58c05776e08f3ef1b97c65&units=imperial",
 									spaceResponse2.iss_position.latitude,spaceResponse2.iss_position.longitude)));
 					break;
@@ -67,7 +69,7 @@ public class M15FinalProjectPhamPhillipApplication {
 					// Take in user input:
 					String coinInput = scanner.nextLine().trim();
 					// Call to CoinAPI and display crypto information
-					GetCoin.displayCrypto(GetCoin.getCrypto(
+					getCoin.displayCrypto(getCoin.getCrypto(
 									String.format("https://rest.coinapi.io/v1/assets/%s/?apikey=1249EB50-E736-4298-8E80-5552DCF56A72",coinInput)
 									));
 					break;

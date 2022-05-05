@@ -5,7 +5,8 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 import reactor.core.publisher.Mono;
 
 public class GetISS {
-    public static SpaceResponse getSpace() {
+    public SpaceResponse getSpace() {
+        // We do not have to edit this URL, so leaving this as-is is okay
         WebClient space = WebClient.create("http://api.open-notify.org/iss-now.json");
         SpaceResponse spaceResponse = null;
         try {
@@ -27,7 +28,7 @@ public class GetISS {
         }
         return spaceResponse;
     }
-    public static void displayLocation(SpaceResponse spaceResponse) {
+    public void displayLocation(SpaceResponse spaceResponse) {
         // These get displayed no matter what. Included the if-else statement in case the object is ever null.
         if (spaceResponse != null) {
             System.out.println("Latitude: " + spaceResponse.iss_position.latitude);

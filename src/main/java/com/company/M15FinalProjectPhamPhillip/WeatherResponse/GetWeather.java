@@ -5,7 +5,8 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 import reactor.core.publisher.Mono;
 
 public class GetWeather {
-    public static WeatherResponse getWeather(String url) {
+    public WeatherResponse getWeather(String url) {
+        // Using String url so that we can update what goes into the API url
         WebClient weather = WebClient.create(url);
         WeatherResponse weatherResponse = null;
         try {
@@ -27,7 +28,7 @@ public class GetWeather {
         }
         return weatherResponse;
     }
-    public static void displayWeather(WeatherResponse weatherResponse) {
+    public void displayWeather(WeatherResponse weatherResponse) {
         // If the weatherResponse object exists, then print out the country and weather. Otherwise, there is no city with the name.
         if (weatherResponse != null) {
             System.out.println("The weather in " + weatherResponse.name + ", " + weatherResponse.sys.country + " is: " + weatherResponse.main.temp + " degrees fahrenheit.");
@@ -35,7 +36,7 @@ public class GetWeather {
             System.out.println("There is no city with that name.");
         }
     }
-    public static void displayISSLocation(WeatherResponse weatherResponse) {
+    public void displayISSLocation(WeatherResponse weatherResponse) {
         // If the country is not null, then print out the location of the ISS (city & country). Otherwise, it is not in a country.
         if (weatherResponse.sys.country != null) {
             System.out.println("The ISS is currently in " + weatherResponse.name + ", " + weatherResponse.sys.country + ".");
@@ -43,7 +44,7 @@ public class GetWeather {
             System.out.println("The ISS is currently not in a country.");
         }
     }
-    public static void displayISSWeather(WeatherResponse weatherResponse) {
+    public void displayISSWeather(WeatherResponse weatherResponse) {
         // If the country IS null (put first because it's a specific case)
         // then notify the user that the ISS isn't in a country. Still give them the weather.
         // If the weatherResponse is not null, then print out the ISS location and weather.

@@ -5,7 +5,29 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 import reactor.core.publisher.Mono;
 
 public class GetCoin {
-    public static CryptoResponse getCrypto(String url) {
+    public CryptoResponse getCrypto(String url) {
+        // Using String url so that we can update what goes into the API url
+        /**
+         * Allocates a new {@code String} that contains characters from a subarray
+         * of the character array argument. The {@code offset} argument is the
+         * index of the first character of the subarray and the {@code count}
+         * argument specifies the length of the subarray. The contents of the
+         * subarray are copied; subsequent modification of the character array does
+         * not affect the newly created string.
+         *
+         * @param  value
+         *         Array that is the source of characters
+         *
+         * @param  offset
+         *         The initial offset
+         *
+         * @param  count
+         *         The length
+         *
+         * @throws  IndexOutOfBoundsException
+         *          If {@code offset} is negative, {@code count} is negative, or
+         *          {@code offset} is greater than {@code value.length - count}
+         */
         WebClient crypto = WebClient.create(url);
         CryptoResponse cryptoResponse = null;
         try {
@@ -27,7 +49,7 @@ public class GetCoin {
         }
         return cryptoResponse;
     }
-    public static void displayCrypto(CryptoResponse cryptoResponse) {
+    public void displayCrypto(CryptoResponse cryptoResponse) {
         // If the crypto input was valid, print out the name, symbol, and price in USD. Otherwise, the entry was invalid.
         if (cryptoResponse != null) {
             System.out.println("Cryptocurrency name: " + cryptoResponse.name
