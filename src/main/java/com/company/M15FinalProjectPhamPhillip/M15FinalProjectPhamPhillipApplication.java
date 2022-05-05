@@ -2,7 +2,6 @@ package com.company.M15FinalProjectPhamPhillip;
 
 import static com.company.M15FinalProjectPhamPhillip.SpaceResponse.GetISS.displayLocation;
 import static com.company.M15FinalProjectPhamPhillip.SpaceResponse.GetISS.getSpace;
-
 import com.company.M15FinalProjectPhamPhillip.CryptoResponse.GetCoin;
 import com.company.M15FinalProjectPhamPhillip.SpaceResponse.SpaceResponse;
 import com.company.M15FinalProjectPhamPhillip.WeatherResponse.WeatherResponse;
