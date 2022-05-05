@@ -28,13 +28,13 @@ public class GetISS {
         return spaceResponse;
     }
     public static void displayLocation(SpaceResponse spaceResponse) {
-        System.out.println("Latitude: " + spaceResponse.iss_position.latitude);
-        System.out.println("Longitude: " + spaceResponse.iss_position.longitude);
-    }
+        // These get displayed no matter what. Included the if-else statement in case the object is ever null.
+        if (spaceResponse != null) {
+            System.out.println("Latitude: " + spaceResponse.iss_position.latitude);
+            System.out.println("Longitude: " + spaceResponse.iss_position.longitude);
+        } else {
+            System.out.println("There was an error with your request.");
+        }
 
-//    public static void displayISSWeather(SpaceResponse spaceResponse) {
-//        double lat = Double.parseDouble(spaceResponse.iss_position.latitude);
-//        double lon = Double.parseDouble(spaceResponse.iss_position.longitude);
-//        WeatherResponseTest.getWeather();
-//    }
+    }
 }

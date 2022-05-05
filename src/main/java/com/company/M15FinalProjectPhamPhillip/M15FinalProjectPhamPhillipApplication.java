@@ -67,7 +67,7 @@ public class M15FinalProjectPhamPhillipApplication {
 					System.out.println("Please enter a valid symbol for a cryptocurrency below: ");
 					// Take in user input:
 					String coinInput = scanner.nextLine().trim();
-					// Call to CoinAPI and display crypto prices
+					// Call to CoinAPI and display crypto information
 					GetCoin.displayCrypto(GetCoin.getCrypto(
 									String.format("https://rest.coinapi.io/v1/assets/%s/?apikey=1249EB50-E736-4298-8E80-5552DCF56A72",coinInput)
 									));

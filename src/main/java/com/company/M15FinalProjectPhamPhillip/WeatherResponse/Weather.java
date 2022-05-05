@@ -5,13 +5,4 @@ public class Weather {
     public String main;
     public String description;
     public String icon;
-
-    //"weather": [
-    //    //    {
-    //    //      "id": 800,
-    //    //      "main": "Clear",
-    //    //      "description": "clear sky",
-    //    //      "icon": "01d"
-    //    //    }
-    //    //  ]
 }

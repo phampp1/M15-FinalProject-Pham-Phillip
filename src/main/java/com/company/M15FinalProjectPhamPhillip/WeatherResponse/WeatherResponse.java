@@ -14,8 +14,4 @@ public class WeatherResponse {
     public double id;
     public String name;
     public double cod;
-
-    // https://api.openweathermap.org/data/2.5/weather?q=Westminster,CA,US&appid=1aca49340b58c05776e08f3ef1b97c65&units=imperial
-    // Look at API docs
-
 }

@@ -5,10 +5,6 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 import reactor.core.publisher.Mono;
 
 public class GetCoin {
-    public static void main(String[] args) {
-        CryptoResponse cryptoResponse = getCrypto("https://rest.coinapi.io/v1/assets/BTC/?apikey=1249EB50-E736-4298-8E80-5552DCF56A72");
-        displayCrypto(cryptoResponse);
-    }
     public static CryptoResponse getCrypto(String url) {
         WebClient crypto = WebClient.create(url);
         CryptoResponse cryptoResponse = null;
@@ -32,6 +28,7 @@ public class GetCoin {
         return cryptoResponse;
     }
     public static void displayCrypto(CryptoResponse cryptoResponse) {
+        // If the crypto input was valid, print out the name, symbol, and price in USD. Otherwise, the entry was invalid.
         if (cryptoResponse != null) {
             System.out.println("Cryptocurrency name: " + cryptoResponse.name
                     + "\nCryptocurrency symbol: " + cryptoResponse.asset_id
