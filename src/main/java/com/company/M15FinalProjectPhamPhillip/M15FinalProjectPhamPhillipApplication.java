@@ -71,11 +71,6 @@ public class M15FinalProjectPhamPhillipApplication {
 					GetCoin.displayCrypto(GetCoin.getCrypto(
 									String.format("https://rest.coinapi.io/v1/assets/%s/?apikey=1249EB50-E736-4298-8E80-5552DCF56A72",coinInput)
 									));
-					//
-					// Need to figure out how to access components of the Crypto Object
-					// "https://rest.coinapi.io/v1/assets/%s/?apikey=1249EB50-E736-4298-8E80-5552DCF56A72"
-					// input a crypto symbol (BTC/ETH), return:
-					// name of currency, symbol, and current $USD
 					break;
 				case "5":
 					doLoop = false;
