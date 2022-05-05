@@ -52,7 +52,7 @@ public class GetWeather {
             System.out.println("The ISS is not currently in a country. The weather there is: " + weatherResponse.main.temp);
         } else if (weatherResponse != null) {
             System.out.println("The ISS is currently in " + weatherResponse.name + ", "
-                    + weatherResponse.sys.country + ". The weather there is: " + weatherResponse.main.temp);
+                    + weatherResponse.sys.country + ". It is currently " + weatherResponse.main.temp + " degrees fahrenheit there.");
         } else {
             System.out.println("There was an error with your request.");
         }
