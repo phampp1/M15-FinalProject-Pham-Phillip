@@ -49,7 +49,7 @@ public class GetWeather {
         // If the weatherResponse is not null, then print out the ISS location and weather.
         // If neither scenarios work, then there was an error.
         if (weatherResponse.sys.country == null) {
-            System.out.println("The ISS is not currently in a country. The weather there is: " + weatherResponse.main.temp);
+            System.out.println("The ISS is not currently in a country. It is currently " + weatherResponse.main.temp + " degrees fahrenheit where the ISS is.");
         } else if (weatherResponse != null) {
             System.out.println("The ISS is currently in " + weatherResponse.name + ", "
                     + weatherResponse.sys.country + ". It is currently " + weatherResponse.main.temp + " degrees fahrenheit there.");
